@@ -41,3 +41,53 @@ function initAccordion() {
 }
 
 initAccordion();
+
+function initScrollSuave() {
+  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+
+  function scrollToSection(event) {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute("href");
+    const section = document.querySelector(href);
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    //   forma alternativa
+    //   const topo = section.offsetTop;
+    //   window.scrollTo({
+    //     top: topo,
+    //     behavior: "smooth",
+    //   });
+  }
+
+  linksInternos.forEach((link) => {
+    link.addEventListener("click", scrollToSection);
+  });
+}
+
+initScrollSuave();
+
+function initAnimacaoScroll() {
+  const sections = document.querySelectorAll(".js-scroll");
+  const windowMetade = window.innerHeight * 0.3;
+
+  if (sections.length) {
+    function animaScroll() {
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top - windowMetade;
+        const isSectionVisible = sectionTop - windowMetade < 0;
+        if (isSectionVisible) {
+          console.log("animar");
+          section.classList.add("ativo");
+        }
+      });
+    }
+    animaScroll();
+    window.addEventListener("scroll", animaScroll);
+  }
+}
+
+initAnimacaoScroll();
