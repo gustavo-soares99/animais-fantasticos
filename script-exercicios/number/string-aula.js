@@ -1,38 +1,15 @@
-const frase = "A melhor linguagem";
-const linguagem = "Javascript";
+console.log(Number.isNaN(NaN));
 
-const fraseFinal = frase.concat(linguagem, "!!", "Mais concatenado");
+console.log(parseFloat("23423.42332423gfdgsdggdf4"));
+console.log(parseInt("100.27"));
+console.log(parseInt("100.27reais"));
 
-console.log(fraseFinal);
+const preco = 10.3329;
 
-const fruta = "Banana";
-const listaFrutas = "Melancia, Banana, Laranja";
+console.log(+preco.toFixed());
 
-console.log(fruta.includes(listaFrutas));
-console.log(listaFrutas.includes(fruta));
+let valor = 48.49;
+valor = valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+console.log(valor);
 
-console.log(fruta.startsWith("Ba"));
-console.log(fruta.startsWith("ba"));
-
-// Slice
-
-const transacao1 = "Depósito de cliente";
-const transacao2 = "Depósito de fornecedor";
-const transacao3 = "Taxa de camisas";
-
-console.log(transacao1.slice(0, 3));
-
-console.log(fruta.indexOf("B"));
-
-let preco = "R$ 99,00";
-preco = preco.replace(",", ".");
-
-const listaPrecos = ["R$ 99", "R$199", "R$12000"];
-
-listaPrecos.forEach((item) => {
-  console.log(item.padStart(10, "."));
-});
-
-let listaItens = "Camisas Bonés Calças Bermudas Vestidos Saias";
-
-const arrayLista = listaItens.split(" ");
+console.log(Math.PI);
