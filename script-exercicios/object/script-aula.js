@@ -1,24 +1,53 @@
-// const carros = new Array("Ford", "Fiat", "Honda");
+// const carro = {
+//   rodas: 4,
+//   init(valor) {
+//     this.marca = valor;
+//     return this;
+//   },
+//   acelerar() {
+//     return this.marca + " Acelerou";
+//   },
+//   buzinar() {
+//     return this.marca + " buzinou";
+//   },
+// };
 
-// carros[2] = "Ferrari";
+// const honda = Object.create(carro);
+// honda.init("Honda");
 
-// console.log(carros.length);
+// const ferrari = Object.create(carro).init("Ferrari");
 
-const li = document.querySelectorAll("li");
+// const funcaoAutomovel = {
+//   acelerar() {
+//     return "acelerou";
+//   },
+//   buzinar() {
+//     return "buzinou";
+//   },
+// };
 
-const arrayLi = Array.from(li);
+// const moto = {
+//   rodas: 2,
+//   capacete: true,
+// };
 
-console.log(li);
-console.log(arrayLi);
+// Object.assign(moto, funcaoAutomovel);
+// console.log(moto);
 
-const instrumentos = ["Guitarra", "Baixo", "Violão"];
+// const moto = {};
 
-instrumentos.sort();
-console.log(instrumentos);
+// Object.defineProperties(moto, {
+//   rodas: {
+//     value: 2,
+//     get() {
+//       return this._roda;
+//     },
+//     set(valor) {
+//       this.rodas = valor * 4;
+//     },
+//   },
+// });
 
-const carros = ["Ford", "Fiat", "VW"];
-carros.unshift("Kia");
-carros.push("Ferrari");
+const frutas = ["Maçã"];
 
-carros.reverse();
-console.log(carros);
+console.log(Object.getPrototypeOf(frutas));
