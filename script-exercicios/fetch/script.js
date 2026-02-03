@@ -12,7 +12,6 @@ function handleClick(event) {
   event.preventDefault();
   const cep = inputCep.value;
   buscaCep(cep);
-  console.log(event);
 }
 
 function buscaCep(cep) {
@@ -26,27 +25,32 @@ function buscaCep(cep) {
 // Utilizando a API https://blockchain.info/ticker
 // retorne no DOM o valor de compra da bitcoin and reais.
 // atualize este valor a cada 30s
+
 const btcDisplay = document.querySelector(".btc");
 
 function fetchBtc() {
-  fetch("https://blockchain.info/ticker").then((response) =>
-    response.json().then((btcJson) => (btcDisplay.innerText = btcJson.BRL.buy)),
-  );
+  fetch("https://blockchain.info/ticker")
+    .then((response) => response.json())
+    .then((btcJson) => {
+      btcDisplay.innerText = btcJson.BRL.buy;
+    });
 }
-setInterval(fetchBtc, 50000);
+
+setInterval(fetchBtc, 1000);
 
 fetchBtc();
 
 // Utilizando a API https://api.chucknorris.io/jokes/random
 // retorne uma piada randomica do chucknorris, toda vez que
 // clicar em próxima
-const texto = document.querySelector(".piada");
-const btnPiada = document.querySelector(".btnpiada");
+
+const btnPiada = document.querySelector(".btnPiada");
+const textoPiada = document.querySelector(".piada");
 
 function fetchPiada() {
-  fetch("https://api.chucknorris.io/jokes/random")
-    .then((response) => response.json())
-    .then((body) => (texto.innerText = body.value));
+  fetch("https://api.chucknorris.io/jokes/random").then((res) => {
+    res.json().then((json) => (textoPiada.innerText = json.value));
+  });
 }
 
 btnPiada.addEventListener("click", fetchPiada);
