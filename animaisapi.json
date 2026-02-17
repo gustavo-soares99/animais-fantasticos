@@ -14,5 +14,13 @@
   {
     "specie": "Ursos",
     "total": 230
+  },
+  {
+    "specie": "Papagaios",
+    "total": 654
+  },
+  {
+    "specie": "Coalas",
+    "total": 2497
   }
 ]
