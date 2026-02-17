@@ -14,18 +14,17 @@ export default function fetchAnimais(url, target) {
     numerosGrid.appendChild(divAnimal);
   }
 
+  function animaAnimaisNumeros() {
+    const animaNumeros = new AnimaNumeros("[data-numero]", ".numeros", "ativo");
+    animaNumeros.init();
+  }
   async function criarAnimais() {
     try {
       const animaisResponse = await fetch(url);
       const animaisJson = await animaisResponse.json();
       const numerosGrid = document.querySelector(target);
       animaisJson.forEach((animal) => preencherAnimais(animal));
-      const animaNumeros = new AnimaNumeros(
-        "[data-numero]",
-        ".numeros",
-        "ativo",
-      );
-      animaNumeros.init();
+      animaAnimaisNumeros();
     } catch (erro) {
       console.log(erro);
     }
